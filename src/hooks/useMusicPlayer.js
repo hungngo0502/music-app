@@ -2,8 +2,8 @@ import { useContext } from "react";
 import { MusicPlayerContext } from "../contexts/MusicPlayerContext";
 
 const useMusicPlayer = () => {
-  const { state, setState } = useContext(MusicPlayerContext);
-
+  const [state, setState] = useContext(MusicPlayerContext);
+  console.log(state);
   // Play a specific track
   function playTrack(index) {
     if (index === state.currentTrackIndex) {

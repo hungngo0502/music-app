@@ -3,7 +3,6 @@ import React from "react";
 import PauseCircleIcon from "@mui/icons-material/PauseCircle";
 import HeadphonesIcon from "@mui/icons-material/Headphones";
 import useMusicPlayer from "../hooks/useMusicPlayer";
-import { MusicPlayerContext } from "../contexts/MusicPlayerContext";
 
 function TrackList() {
   const {
@@ -71,9 +70,9 @@ function TrackList() {
             }}
             startIcon={
               index === currentTrackIndex && isPlaying ? (
-                <HeadphonesIcon sx={{ fontSize: "30px" }} />
-              ) : (
                 <PauseCircleIcon sx={{ fontSize: "30px" }} />
+              ) : (
+                <HeadphonesIcon sx={{ fontSize: "30px" }} />
               )
             }
           >

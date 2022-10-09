@@ -1,11 +1,13 @@
 import { Box, Button } from "@mui/material";
 import PlayCircleIcon from "@mui/icons-material/PlayCircle";
+import PauseCircleIcon from "@mui/icons-material/PauseCircle";
 import SkipNextIcon from "@mui/icons-material/SkipNext";
 import SkipPreviousIcon from "@mui/icons-material/SkipPrevious";
 import useMusicPlayer from "../hooks/useMusicPlayer";
 
 function Controller() {
-  const { togglePlay, playPreviousTrack, playNextTrack } = useMusicPlayer();
+  const { togglePlay, playPreviousTrack, playNextTrack, isPlaying } =
+    useMusicPlayer();
 
   return (
     <Box
@@ -26,12 +28,21 @@ function Controller() {
         />
       </Button>
       <Button onClick={togglePlay}>
-        <PlayCircleIcon
-          sx={{
-            color: "rgba(0, 0, 0, 0.54)",
-            fontSize: "60px",
-          }}
-        />
+        {!isPlaying ? (
+          <PlayCircleIcon
+            sx={{
+              color: "rgba(0, 0, 0, 0.54)",
+              fontSize: "60px",
+            }}
+          />
+        ) : (
+          <PauseCircleIcon
+            sx={{
+              color: "rgba(0, 0, 0, 0.54)",
+              fontSize: "60px",
+            }}
+          />
+        )}
       </Button>
       <Button onClick={playNextTrack}>
         <SkipNextIcon fontSize="large" sx={{ color: "rgba(0, 0, 0, 0.54)" }} />
